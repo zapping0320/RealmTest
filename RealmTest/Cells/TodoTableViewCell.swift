@@ -26,4 +26,19 @@ class TodoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func updateUI(_ record : Todo) {
+        
+        thumbImageView.image = UIImage(named: "PillDefault")
+        
+        titleLabel.text = record.title
+        
+        if record.isDone == true {
+            statusLabel.text = "완료"
+        }
+        else {
+            statusLabel.text = "하기 전"
+        }
+        
+    }
+    
 }
