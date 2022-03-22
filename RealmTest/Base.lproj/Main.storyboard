@@ -46,9 +46,32 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbm-Gs-UFJ">
+                                        <rect key="frame" x="374" y="255" width="30" height="30"/>
+                                        <state key="normal" title="삭제"/>
+                                        <connections>
+                                            <action selector="deleteTodoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4A8-aN-s8D"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Do2-Ga-Aaq">
+                                        <rect key="frame" x="274" y="255" width="30" height="30"/>
+                                        <state key="normal" title="추가"/>
+                                        <connections>
+                                            <action selector="addTodoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXA-xC-Gry"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvq-e1-tkc">
+                                        <rect key="frame" x="324" y="255" width="30" height="30"/>
+                                        <state key="normal" title="저장"/>
+                                        <connections>
+                                            <action selector="updateTodoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8NE-gF-DSI"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Xbm-Gs-UFJ" secondAttribute="bottom" constant="15" id="2Zl-jl-Gvt"/>
+                                    <constraint firstItem="Nvq-e1-tkc" firstAttribute="bottom" secondItem="Xbm-Gs-UFJ" secondAttribute="bottom" id="3lI-L2-7CV"/>
                                     <constraint firstItem="pco-V2-3An" firstAttribute="leading" secondItem="zYm-jI-utH" secondAttribute="trailing" constant="20" id="3we-B5-saX"/>
                                     <constraint firstItem="zYm-jI-utH" firstAttribute="leading" secondItem="Ckg-5X-K9q" secondAttribute="leading" constant="10" id="45z-P0-VPs"/>
                                     <constraint firstItem="3s2-qY-X0p" firstAttribute="leading" secondItem="zYm-jI-utH" secondAttribute="trailing" constant="20" id="4oJ-pc-DGc"/>
@@ -59,8 +82,12 @@
                                     <constraint firstItem="zYm-jI-utH" firstAttribute="centerY" secondItem="Ckg-5X-K9q" secondAttribute="centerY" id="a97-0a-iBG"/>
                                     <constraint firstAttribute="trailing" secondItem="3ZU-av-WTU" secondAttribute="trailing" constant="10" id="aRh-vh-ldV"/>
                                     <constraint firstItem="3ZU-av-WTU" firstAttribute="top" secondItem="pco-V2-3An" secondAttribute="top" id="ca0-vX-6im"/>
+                                    <constraint firstItem="Do2-Ga-Aaq" firstAttribute="bottom" secondItem="Nvq-e1-tkc" secondAttribute="bottom" id="jOl-uq-dAl"/>
                                     <constraint firstItem="nZK-D4-CzM" firstAttribute="leading" secondItem="3s2-qY-X0p" secondAttribute="trailing" constant="20" id="jht-sF-x3y"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xbm-Gs-UFJ" secondAttribute="trailing" constant="10" id="kdU-DY-GvR"/>
+                                    <constraint firstItem="Xbm-Gs-UFJ" firstAttribute="leading" secondItem="Nvq-e1-tkc" secondAttribute="trailing" constant="20" id="pxu-D8-GxE"/>
                                     <constraint firstItem="3ZU-av-WTU" firstAttribute="leading" secondItem="pco-V2-3An" secondAttribute="trailing" constant="10" id="rRy-8R-aGA"/>
+                                    <constraint firstItem="Nvq-e1-tkc" firstAttribute="leading" secondItem="Do2-Ga-Aaq" secondAttribute="trailing" constant="20" id="tqy-Zx-Y44"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-g3-Cb3">

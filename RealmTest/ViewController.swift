@@ -10,7 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    {
+        didSet {
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+        }
+    }
     
     @IBOutlet weak var todoDetailView: UIView!
     @IBOutlet weak var thumbImageView: UIImageView!
@@ -31,7 +36,32 @@ class ViewController: UIViewController {
         TodoManager.shared.loadTodos()
         
     }
-
+    
+    @IBAction func addTodoAction(_ sender: Any) {
+        let newTodo = Todo()
+        newTodo.title = titleTextField.text!
+        newTodo.isDone = statusSwitch.isOn
+        
+        _ = TodoManager.shared.addTodo(newTodo)
+        
+        updateTabale()
+    }
+    
+    @IBAction func updateTodoAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func deleteTodoAction(_ sender: Any) {
+        
+    }
+    
+    func updateTabale() {
+        TodoManager.shared.loadTodos()
+        
+        tableView.reloadData()
+    }
+    
+    
 }
 
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
