@@ -11,6 +11,8 @@
 		E3648C9427E97DBE00077BA5 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3648C9327E97DBE00077BA5 /* Todo.swift */; };
 		E3648C9727E97E7900077BA5 /* TodoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3648C9627E97E7900077BA5 /* TodoManager.swift */; };
 		E3648C9927E97F0B00077BA5 /* RealmDBSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3648C9827E97F0B00077BA5 /* RealmDBSchema.swift */; };
+		E3648C9D27E9891C00077BA5 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3648C9B27E9891C00077BA5 /* TodoTableViewCell.swift */; };
+		E3648C9E27E9891C00077BA5 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3648C9C27E9891C00077BA5 /* TodoTableViewCell.xib */; };
 		E399CBF127E7DA6700203FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E399CBF027E7DA6700203FBE /* AppDelegate.swift */; };
 		E399CBF327E7DA6700203FBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E399CBF227E7DA6700203FBE /* SceneDelegate.swift */; };
 		E399CBF527E7DA6700203FBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E399CBF427E7DA6700203FBE /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 		E3648C9327E97DBE00077BA5 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		E3648C9627E97E7900077BA5 /* TodoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoManager.swift; sourceTree = "<group>"; };
 		E3648C9827E97F0B00077BA5 /* RealmDBSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBSchema.swift; sourceTree = "<group>"; };
+		E3648C9B27E9891C00077BA5 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		E3648C9C27E9891C00077BA5 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		E399CBED27E7DA6700203FBE /* RealmTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E399CBF027E7DA6700203FBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E399CBF227E7DA6700203FBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		E3648C9A27E9890300077BA5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E3648C9B27E9891C00077BA5 /* TodoTableViewCell.swift */,
+				E3648C9C27E9891C00077BA5 /* TodoTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		E399CBE427E7DA6700203FBE = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		E399CBEF27E7DA6700203FBE /* RealmTest */ = {
 			isa = PBXGroup;
 			children = (
+				E3648C9A27E9890300077BA5 /* Cells */,
 				E3648C9527E97E6500077BA5 /* Manager */,
 				E3648C9227E97DAB00077BA5 /* Model */,
 				E399CBF027E7DA6700203FBE /* AppDelegate.swift */,
@@ -181,6 +195,7 @@
 				E399CC0027E7DA6900203FBE /* LaunchScreen.storyboard in Resources */,
 				E399CBFD27E7DA6900203FBE /* Assets.xcassets in Resources */,
 				E399CBF827E7DA6700203FBE /* Main.storyboard in Resources */,
+				E3648C9E27E9891C00077BA5 /* TodoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +251,7 @@
 				E3648C9927E97F0B00077BA5 /* RealmDBSchema.swift in Sources */,
 				E399CBF527E7DA6700203FBE /* ViewController.swift in Sources */,
 				E3648C9727E97E7900077BA5 /* TodoManager.swift in Sources */,
+				E3648C9D27E9891C00077BA5 /* TodoTableViewCell.swift in Sources */,
 				E399CBF127E7DA6700203FBE /* AppDelegate.swift in Sources */,
 				E399CBF327E7DA6700203FBE /* SceneDelegate.swift in Sources */,
 				E399CBFB27E7DA6700203FBE /* RealmTest.xcdatamodeld in Sources */,

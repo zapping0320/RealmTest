@@ -63,17 +63,26 @@
                                     <constraint firstItem="3ZU-av-WTU" firstAttribute="leading" secondItem="pco-V2-3An" secondAttribute="trailing" constant="10" id="rRy-8R-aGA"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-g3-Cb3">
+                                <rect key="frame" x="0.0" y="344" width="414" height="518"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="gu6-g3-Cb3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8pX-O7-vnx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gu6-g3-Cb3" secondAttribute="trailing" id="JMz-HR-Tte"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ckg-5X-K9q" secondAttribute="trailing" id="UC7-H4-Er8"/>
                             <constraint firstItem="Ckg-5X-K9q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gMf-Ag-kae"/>
                             <constraint firstItem="Ckg-5X-K9q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jCq-T8-SJ3"/>
+                            <constraint firstItem="gu6-g3-Cb3" firstAttribute="top" secondItem="Ckg-5X-K9q" secondAttribute="bottom" id="kAf-uC-oE8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gu6-g3-Cb3" secondAttribute="bottom" id="uIM-G6-ZmP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="statusSwitch" destination="nZK-D4-CzM" id="d2G-1y-8uJ"/>
+                        <outlet property="tableView" destination="gu6-g3-Cb3" id="aBe-Zt-cgs"/>
                         <outlet property="thumbImageView" destination="zYm-jI-utH" id="zbF-4z-l18"/>
                         <outlet property="titleTextField" destination="3ZU-av-WTU" id="VHD-qa-cYA"/>
                         <outlet property="todoDetailView" destination="Ckg-5X-K9q" id="TqY-GH-2mK"/>
