@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var statusSwitch: UISwitch!
     
+    private var currentTodo:Todo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,6 +63,14 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     
+    func updateDetailView() {
+        guard let todo = currentTodo else {
+            return
+        }
+        
+        titleTextField.text = todo.title
+        statusSwitch.isOn = todo.isDone
+    }
     
 }
 
@@ -81,6 +91,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.currentTodo = TodoManager.shared.todos[indexPath.row]
+        
+        updateDetailView()
     }
     
 }
