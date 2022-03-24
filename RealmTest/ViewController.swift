@@ -33,6 +33,9 @@ class ViewController: UIViewController {
         thumbImageView.contentMode = .scaleToFill
         thumbImageView.layer.borderWidth = 1
         
+        thumbImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pickProfileImage)))
+        thumbImageView.isUserInteractionEnabled = true
+        
         self.tableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil), forCellReuseIdentifier: "todoTableViewCell")
         
         TodoManager.shared.loadTodos()
@@ -97,6 +100,27 @@ class ViewController: UIViewController {
         alert.addAction(confirmAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @objc func pickProfileImage() {
+        self.pickImage()
+    }
+    
+    func pickImage() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        
+        self.present(imagePicker, animated: true, completion:  nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //self.isPickedProfileImage = true
+        thumbImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 }
 
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
@@ -127,3 +151,6 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 
+extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+}
