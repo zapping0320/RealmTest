@@ -143,8 +143,7 @@ class TodoManager {
             //delete todo
             let predicate = NSPredicate(format: "id = %@",  NSNumber(value: todo.id))
             guard let targetTodo = realm.objects(Todo.self).filter(predicate).first else { return }
-            targetTodo.updatedDate = Date()
-            targetTodo.deletedDate = Date()
+            realm.delete(targetTodo)
         }
         
         loadTodos()

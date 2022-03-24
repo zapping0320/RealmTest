@@ -54,13 +54,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func deleteTodoAction(_ sender: Any) {
+        guard let todo = currentTodo else {
+            popupMessage("", "todo를 선택해주세요.")
+            return
+        }
         
+        TodoManager.shared.deleteTodo(todo)
+        
+        updateTabale()
+        
+        initDetailView()
     }
     
     func updateTabale() {
         TodoManager.shared.loadTodos()
         
         tableView.reloadData()
+    }
+    
+    func initDetailView() {
+        titleTextField.text = ""
+        statusSwitch.isOn = false
     }
     
     func updateDetailView() {
@@ -72,6 +86,17 @@ class ViewController: UIViewController {
         statusSwitch.isOn = todo.isDone
     }
     
+    func popupMessage(_ title:String, _ message:String) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인",
+                                          style: .default, handler: {result in
+                                           
+                                          })
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
