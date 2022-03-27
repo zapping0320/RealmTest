@@ -150,7 +150,7 @@ class TodoManager {
         
     }
     
-    func updateTodo(_ updatedTodo: Todo, onlyResetAlarm:Bool) {
+    func updateTodo(_ updatedTodo: Todo) {
         let realm = try! Realm()
         
         let predicate = NSPredicate(format: "id = %@",  NSNumber(value: updatedTodo.id))
@@ -177,15 +177,5 @@ class TodoManager {
         guard let todo = realm.objects(Todo.self).filter(predicate).first else { return Todo()}
         
         return todo
-    }
-    
-    func updateAllTodos() {
-        let realm = try! Realm()
-        
-        let loadedTodos = realm.objects(Todo.self).sorted(byKeyPath: "id", ascending: false)
-        
-        for todo in loadedTodos {
-            updateTodo(todo, onlyResetAlarm: false)
-        }
     }
 }

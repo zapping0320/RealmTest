@@ -53,6 +53,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func updateTodoAction(_ sender: Any) {
+        guard let todo = currentTodo else {
+            popupMessage("", "todo를 선택해주세요.")
+            return
+        }
+        
+        let updatedTodo = Todo()
+        updatedTodo.id = todo.id
+        updatedTodo.title = titleTextField.text!
+        updatedTodo.isDone = statusSwitch.isOn
+        
+        TodoManager.shared.updateTodo(updatedTodo)
+        
+        currentTodo = updatedTodo
+        
+        updateTabale()
         
     }
     
