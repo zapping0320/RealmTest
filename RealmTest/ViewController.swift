@@ -109,6 +109,11 @@ class ViewController: UIViewController {
         
         titleTextField.text = todo.title
         statusSwitch.isOn = todo.isDone
+        
+        if todo.imageUUID.isEmpty == false {
+            guard let imageData = loadImageFromDocumentDirectory(imageName: todo.imageUUID + ".jpg") else { return }
+            thumbImageView.image = imageData
+        }
     }
     
     func popupMessage(_ title:String, _ message:String) {
@@ -178,6 +183,23 @@ class ViewController: UIViewController {
             } catch {
                 print("이미지를 저장하지 못했습니다.")
             }
+        }
+    
+    func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
+            
+            // 1. 도큐먼트 폴더 경로가져오기
+            let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+            let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+            let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+            
+            if let directoryPath = path.first {
+            // 2. 이미지 URL 찾기
+                let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
+                // 3. UIImage로 불러오기
+                return UIImage(contentsOfFile: imageURL.path)
+            }
+            
+            return nil
         }
 }
 
