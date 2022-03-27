@@ -40,8 +40,8 @@ class TodoTableViewCell: UITableViewCell {
         }
         
         
-        if record.imageUUID.isEmpty == false {
-            guard let imageData = SaveImageHelper.loadImageFromDocumentDirectory(imageName: record.imageUUID + ".jpg") else { return }
+        if record.getImageName().isEmpty == false {
+            guard let imageData = SaveImageHelper.loadImageFromDocumentDirectory(imageName: record.getImageName()) else { return }
             thumbImageView.image = imageData
         }
         

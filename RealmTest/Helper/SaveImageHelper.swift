@@ -63,4 +63,19 @@ class SaveImageHelper {
         }
     }
     
+    static func deleteImageFromDocumentDirectory(imageName: String) {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
+
+        let imageURL = documentDirectory.appendingPathComponent(imageName)
+    
+        print(imageURL.path)
+        if FileManager.default.fileExists(atPath: imageURL.path) {
+            do {
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제 완료")
+            } catch {
+                print("이미지를 삭제하지 못했습니다.")
+            }
+        }
+    }
 }

@@ -20,4 +20,12 @@ class Todo : Object {
        return "id"
    }
     
+    func getImageName() -> String {
+        if imageUUID.isEmpty == true {
+            return ""
+        }
+        
+        return imageUUID + ".jpg"
+    }
+    
 }

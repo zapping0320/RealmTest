@@ -49,9 +49,8 @@ class ViewController: UIViewController {
         newTodo.isDone = statusSwitch.isOn
         
         if updateImageView == true {
-            let uuid = UUID().uuidString
-            SaveImageHelper.saveImageToDocumentDirectory(imageName: uuid + ".jpg", image: thumbImageView.image!)
-            newTodo.imageUUID = uuid
+            newTodo.imageUUID = UUID().uuidString
+            SaveImageHelper.saveImageToDocumentDirectory(imageName: newTodo.getImageName(), image: thumbImageView.image!)
         }
         
         _ = TodoManager.shared.addTodo(newTodo)
@@ -84,6 +83,10 @@ class ViewController: UIViewController {
             return
         }
         
+        if todo.getImageName().isEmpty == false {
+            SaveImageHelper.deleteImageFromDocumentDirectory(imageName: todo.getImageName())
+        }
+        
         TodoManager.shared.deleteTodo(todo)
         
         updateTabale()
@@ -100,6 +103,7 @@ class ViewController: UIViewController {
     func initDetailView() {
         titleTextField.text = ""
         statusSwitch.isOn = false
+        thumbImageView.image = UIImage(named: "PillDefault")
     }
     
     func updateDetailView() {
@@ -107,11 +111,13 @@ class ViewController: UIViewController {
             return
         }
         
+        initDetailView()
+        
         titleTextField.text = todo.title
         statusSwitch.isOn = todo.isDone
         
-        if todo.imageUUID.isEmpty == false {
-            guard let imageData = SaveImageHelper.loadImageFromDocumentDirectory(imageName: todo.imageUUID + ".jpg") else { return }
+        if todo.getImageName().isEmpty == false {
+            guard let imageData = SaveImageHelper.loadImageFromDocumentDirectory(imageName: todo.getImageName()) else { return }
             thumbImageView.image = imageData
         }
     }
