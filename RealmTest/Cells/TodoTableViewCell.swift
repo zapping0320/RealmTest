@@ -39,6 +39,12 @@ class TodoTableViewCell: UITableViewCell {
             statusLabel.text = "하기 전"
         }
         
+        
+        if record.imageUUID.isEmpty == false {
+            guard let imageData = SaveImageHelper.loadImageFromDocumentDirectory(imageName: record.imageUUID + ".jpg") else { return }
+            thumbImageView.image = imageData
+        }
+        
     }
     
 }
