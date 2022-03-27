@@ -61,7 +61,7 @@ class TodoManager {
 //            }
 //        }
       
- //       Realm.Configuration.defaultConfiguration = getDefaultRealmConfig(fileURL)
+        Realm.Configuration.defaultConfiguration = getDefaultRealmConfig(Realm.Configuration.defaultConfiguration.fileURL!)
  //       print("shared = \(fileURL)")
         
     }

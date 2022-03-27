@@ -8,5 +8,5 @@
 import Foundation
 
 class RealmDBSchema {
-    static let currentVersion:UInt64 = 0
+    static let currentVersion:UInt64 = 1
 }

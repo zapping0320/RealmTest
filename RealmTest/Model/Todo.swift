@@ -11,6 +11,7 @@ class Todo : Object {
     @objc dynamic var id                = 0
     @objc dynamic var isDone            = false //false - processing true - done
     @objc dynamic var title             = ""
+    @objc dynamic var imageUUID         = ""
     
     @objc dynamic var updatedDate:Date  = Date()
     @objc dynamic var deletedDate:Date?
