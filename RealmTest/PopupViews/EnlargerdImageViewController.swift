@@ -20,13 +20,17 @@ class EnlargerdImageViewController: UIViewController {
             return
         }
         
-        enlargedImageView.image = UIImage(named: enlargedImagePath)
+        guard let imageData = SaveImageHelper.loadImageFromDocumentDirectory(imageName: enlargedImagePath) else { return closeVC() }
+        enlargedImageView.image = imageData
         
     }
 
     @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        closeVC()
     }
     
+    private func closeVC() {
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }
