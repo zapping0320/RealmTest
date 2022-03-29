@@ -8,6 +8,8 @@
 import UIKit
 
 class TodoTableViewCell: UITableViewCell {
+    
+    public var enlargedImageAction:(() -> Void)?
 
     @IBOutlet weak var thumbImageView: UIImageView!
     
@@ -18,13 +20,16 @@ class TodoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        thumbImageView.isUserInteractionEnabled = true
+        thumbImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(enlargeImage)))
     }
+    
+    @objc func enlargeImage() {
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        enlargedImageAction?()
     }
+   
     
     func updateUI(_ record : Todo) {
         

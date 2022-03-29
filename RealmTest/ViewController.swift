@@ -170,6 +170,14 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         
         cell.updateUI(current)
         
+        cell.enlargedImageAction = {
+            let enlargeImageVC = EnlargerdImageViewController(nibName: "EnlargerdImageViewController", bundle: nil)
+            enlargeImageVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            enlargeImageVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+    
+            self.present(enlargeImageVC, animated: true)
+        }
+        
         return cell
     }
     
