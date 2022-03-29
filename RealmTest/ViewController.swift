@@ -141,7 +141,7 @@ class ViewController: UIViewController {
     func pickImage() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         
         self.present(imagePicker, animated: true, completion:  nil)
